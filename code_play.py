@@ -91,4 +91,4 @@ def codeAdd(src_path, src_file, flag, dst_str):
 			
 		
 # codePlay("src/org/appplay/lib", "AppPlayBaseActivity.java", "public static void LoadSdkAD", ")", "public static void LoadSdkAD(int platformId, int positionId)")
-codeAdd("ApkBuilderScripts/projects_build_1", "hahaha", "hahaha", "hahaha")
+# codeAdd("ApkBuilderScripts/projects_build_1", "hahaha", "hahaha", "hahaha")
