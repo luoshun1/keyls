@@ -38,7 +38,7 @@ if __name__ == "__main__":
     with closing(requests.get(url, stream=True)) as response:
         chunk_size = 1024
         content_size = int(response.headers['content-length'])
-        if response.status_code = 200:
+        if response.status_code == 200:
             print('文件大小:%0.2f KB' % (content_size /chunk_size))
             progress = ProgressBar("%s下载进度" % filename
                         , total = content_size
