@@ -1,5 +1,5 @@
-# import requests
-# from contextlib import closing
+import requests
+from contextlib import closing
 
 class ProgressBar(object):
     def __init__(self, title, count = 0.0, run_status = None, fin_status = None, total = 100.0, unit = '', sep = '/', chunk_size = 1.0):
@@ -33,4 +33,23 @@ if __name__ == "__main__":
     print('\t\t\t\t欢迎使用文件下载小助手')
     print('作者：keyls')
     print('*' * 100)
-    
+    url = input('请输入需要下载的文件链接:\n')
+    filename = url.split('/')[-1]
+    with closing(requests.get(url, stream=True)) as response:
+        chunk_size = 1024
+        content_size = int(response.headers['content-length'])
+        if response.status_code = 200:
+            print('文件大小:%0.2f KB' % (content_size /chunk_size))
+            progress = ProgressBar("%s下载进度" % filename
+                        , total = content_size
+                        , unit = "KB"
+                        , chunk_size = chunk_size
+                        , run_status = "正在下载"
+                        , fin_status = "下载完成")
+
+            with open(filename, "wb") as file:
+                for data in response.iter_content(chunk_size = chunk_size):
+                    file.write(data)
+                    progress.refresh(count = len(data))
+        else:
+            print("链接异常")
