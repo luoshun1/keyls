@@ -30,3 +30,7 @@ if __name__ == "__main__":
     # url = 'http://www.demongan.com/source/game/二十四点.zip'
     # filename = "二十四点.zip"
     print('*' * 100)
+    print('\t\t\t\t欢迎使用文件下载小助手')
+    print('作者：keyls')
+    print('*' * 100)
+    
