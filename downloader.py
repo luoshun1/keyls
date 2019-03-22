@@ -3,6 +3,7 @@ from contextlib import closing
 
 class ProgressBar(object):
     def __init__(self, title, count = 0.0, run_status = None, fin_status = None, total = 100.0, unit = '', sep = '/', chunk_size = 1.0):
+        super(ProgressBar, self).__init__()
         self.info = "[%s] %s %.2f %s %s %.2f %s"
         self.title = title
         self.total = total
@@ -18,7 +19,7 @@ class ProgressBar(object):
         return _info
 
     def refresh(self, count = 1, status = None):
-        self.count = count
+        self.count += count
         self.status = status or self.status
         end_str = "\r"
         if self.count >= self.total:
